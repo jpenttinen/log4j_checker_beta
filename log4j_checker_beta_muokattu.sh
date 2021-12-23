@@ -60,13 +60,14 @@ function find_jar_files() {
 }
 
 # print hostname to stdout
-hostname 
+echo "hostname: $(hostname)" 
+# hostname 
 echo ""
 # print operating system information to stdout
 
-if [-s /etc/redhat-release] then;
+if [ -s /etc/redhat-release ]; then
   cat /etc/redhat-release
-elif [if -s /etc/lsb-release] then;
+elif [ -s /etc/lsb-release ]; then
   cat /etc/lsb-release
 fi
 echo ""
