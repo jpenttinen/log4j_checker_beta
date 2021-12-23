@@ -61,7 +61,15 @@ function find_jar_files() {
 
 # print hostname to stdout
 hostname 
+echo ""
+# print operating system information to stdout
 
+if [-s /etc/redhat-release] then;
+  cat /etc/redhat-release
+elif [if -s /etc/lsb-release] then;
+  cat /etc/lsb-release
+fi
+echo ""
 # print interface ip address information to stdout
 
 if [ "$(command -v ifconfig)" ]; then
@@ -71,7 +79,7 @@ elif ["$(command -v ip)"]; then
 else
   echo "IP information can't be printed."
 fi
-
+echo ""
 # check root user
 if [ $USER != root ]; then
   warning "You have no root-rights. Not all files will be found."
